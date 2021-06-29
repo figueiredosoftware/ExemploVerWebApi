@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Scripts/jquery-3.4.1.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(iniciar);
+        function iniciar() {
+            $("#testeButton").click(testeButtonClick);
+        }
+        function testeButtonClick() {
+            $.getJSON("api/produto", respostaCallBack);
+        }
+        function respostaCallBack(dados) {
+            $("#mensagemDiv").text(dados);
+        }
+    </script>
+
+</head>
+<body>
+    <h1>Teste Web API</h1>
+    <button type="button" id="testeButton">Testar</button>
+    <br />
+    <div id="mensagemDiv"></div>
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <form action="api/produto" method="post">
+
+        Nome:
+        <br />
+        <input name="Nome" />
+        <br />
+        <br />
+
+        Preco:
+        <br />
+        <input name="Preco" />
+        <br />
+        <br />
+
+        <button type="submit">Confirmar</button>
+
+
+
+    </form>
+
+</body>
+</html>
